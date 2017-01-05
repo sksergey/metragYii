@@ -184,4 +184,6 @@ class AgencyController extends Controller
         //return $dataProvider;
         return $this->render('search-result', ['dataProvider' => $dataProvider]);
     }
+
+    
 }

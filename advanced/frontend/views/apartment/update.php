@@ -1,0 +1,2 @@
+<?= 'apartment edit'; ?>
+<?= $data['id'];?>

@@ -1,0 +1,2 @@
+<?= 'apartment delete'; ?>
+<?= $data['id'];?>
