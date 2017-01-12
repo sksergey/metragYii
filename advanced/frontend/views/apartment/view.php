@@ -20,11 +20,13 @@
 <? echo DetailView::widget([
     'model' => $model,
     'attributes' => [
-        'apartment_id',
+        'id',
         'type_object_id',
         [
 	        	'attribute' => 'Тип объекта',
-	        	'value' => $model->type_object_id
+	        	'value' => $model->type_object_id,
+                'contentOptions' => ['class' => 'bg-red'],
+                'captionOptions' => ['tooltip' => 'Tooltip'],
 	    ],
         'count_room',
         'layout_id',
@@ -33,13 +35,7 @@
         'phone',
         'price',
         'author_id'
-       /* [                                                  // name свойство зависимой модели owner
-            'label' => 'Owner',
-            'value' => $model->owner->name,            
-            'contentOptions' => ['class' => 'bg-red'],     // настройка HTML атрибутов для тега, соответсвующего value
-            'captionOptions' => ['tooltip' => 'Tooltip'],  // настройка HTML атрибутов для тега, соответсвующего label
-        ],
-        'created_at:datetime',                             // дата создания в формате datetime*/
+     
     ],
 ]);
 

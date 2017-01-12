@@ -28,6 +28,7 @@ use app\models\WallMaterial;
 use app\models\Condit;
 use app\models\Wc;
 use app\models\Users;
+use app\models\Layout;
 
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
@@ -75,6 +76,7 @@ class AgencyController extends Controller
         $model['RegionKharkivAdmin'] = new RegionKharkivAdmin();
         $model['TypeObject'] = new TypeObject();
         $model['Locality'] = new Locality();
+        $model['Layout'] = new Layout();
         $model['RegionKharkiv'] = new RegionKharkiv();
         $model['Region'] = new Region();
         $model['Street'] = new Street();
@@ -118,7 +120,7 @@ class AgencyController extends Controller
             'totalCount' => $query->count(),
         ]);
 
-        $apartments = $query->orderBy('apartment_id')
+        $apartments = $query->orderBy('id')
             ->offset($pagination->offset)
             ->limit($pagination->limit)
             ->all();
@@ -132,7 +134,7 @@ class AgencyController extends Controller
     public function actionTestview()
     {
         $query = Apartment::find();
-        $apartment = $query->where(['apartment_id' => '24'])->one();
+        $apartment = $query->where(['id' => '24'])->one();
         return $this->render('apartmentshow',['apartment'=>$apartment]);
     }
 
@@ -143,7 +145,7 @@ class AgencyController extends Controller
         $query = Apartment::find();
 
         if(!empty($get['Apartment']['from_id']))
-        $query->andwhere(['between', 'apartment_id', $get['Apartment']['from_id'], $get['Apartment']['to_id']]);
+        $query->andwhere(['between', 'id', $get['Apartment']['from_id'], $get['Apartment']['to_id']]);
               
         if(!empty($get['TypeObject']['type_object_id']))
         $query->andwhere(['type_object_id' => $get['TypeObject']['type_object_id']]);

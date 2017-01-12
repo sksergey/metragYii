@@ -13,7 +13,7 @@
 	echo DetailView::widget([
     'model' => $model,
     'attributes' => [
-        'apartment_id' => ['class' => 'bg-red'],
+        'id' => ['class' => 'bg-red'],
         'note:html',
         [                                                  // name свойство зависимой модели owner
             'label' => 'Owner',
@@ -38,7 +38,7 @@ echo GridView::widget([
         ['class' => 'yii\grid\SerialColumn'],
         // Обычные поля определенные данными содержащимися в $dataProvider.
         // Будут использованы данные из полей модели.
-        'apartment_id',
+        'id',
         'type_object_id',
         'count_room',
         'layout_id',

@@ -21,16 +21,17 @@
 	        	'controller' => 'apartment'
 	        	/*'attribute' => 'Action',
 	        	'value' => function($dataProvider){
-	        		//return Url::to(['agency/apartmentedit', 'id' => $dataProvider->apartment_id]);
-	        		return Html::a('Редактировать', ['agency/apartmentedit', 'id' => $dataProvider->apartment_id], ['class' => 'profile-link']);
+	        		//return Url::to(['agency/apartmentedit', 'id' => $dataProvider->id]);
+	        		return Html::a('Редактировать', ['agency/apartmentedit', 'id' => $dataProvider->id], ['class' => 'profile-link']);
 	        	}*/
 	        ],
-	        [
+	        'id',
+	        /*[
 	        	'attribute' => 'ID',
-	        	'value' =>	'apartment_id',
-	        ],
+	        	'value' =>	'id',
+	        ],*/
 	        [
-	        	'attribute' => 'Тип объекта',
+	        	'attribute' => 'тип',
 	        	'value' =>  function ($dataProvider) {
 	        		return TypeObject::findOne($dataProvider->type_object_id)->name;
 	        	}
@@ -44,12 +45,14 @@
 	        'count_room',
 	        'layout_id',
 	        'floor',
+	        'corps',
+	        'number_apartment',
 	        'note',
 	        'notesite',
 	        'phone',
 	        'price',
-	        'update_author_id'
-	        
+	        'update_author_id',
+	        'enabled'
 	    ],
 	]);
 ?>
