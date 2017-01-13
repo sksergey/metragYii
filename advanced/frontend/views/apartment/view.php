@@ -19,11 +19,10 @@
 
 <? echo DetailView::widget([
     'model' => $model,
-    'attributes' => [
+    /*'attributes' => [
         'id',
         'type_object_id',
         [
-	        	'attribute' => 'Тип объекта',
 	        	'value' => $model->type_object_id,
                 'contentOptions' => ['class' => 'bg-red'],
                 'captionOptions' => ['tooltip' => 'Tooltip'],
@@ -36,7 +35,18 @@
         'price',
         'author_id'
      
-    ],
+    ],*/
 ]);
 
 ?>
+
+<? 
+	$images = $model->getImages();
+	//var_dump($images);
+if($images){
+	foreach ($images as $image):
+
+?>
+<img src="<?= $image->getUrl(); ?>" alt=""/>		
+		
+<? endforeach; } ?>

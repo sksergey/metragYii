@@ -40,7 +40,8 @@ use yii\helpers\Url;
  */
 class AgencyController extends Controller
 {
-	/*public function behaviors()
+    /*
+	public function behaviors()
     {
         return [
             'access' => [

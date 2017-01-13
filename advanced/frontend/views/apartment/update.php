@@ -131,5 +131,14 @@ use app\models\SourceInfo;
         <?= Html::submitButton('Добавить', ['class' => 'btn btn-primary']) ?>
     </div>
 </div>
-
+<? 
+	$images = $model['Apartment']->getImages();
+	//var_dump($images);
+if($images){
+	foreach ($images as $image):
+?>
+<img src="<?= $image->getUrl('300*300'); ?>" alt="">		
+		
+<? endforeach; }?>
 <?php ActiveForm::end(); ?>
+

@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use yii\db\ActiveRecord;
 use yii\data\Pagination;
 use yii\web\UploadedFile;
@@ -40,7 +41,9 @@ class Apartment extends ActiveRecord
     {
         return [
             [['type_object_id', 'count_room', 'floor', 'floor_all', 'region_kharkiv_admin_id', 'region_kharkiv_id', 'street_id', 'number_building', 'corps', 'number_apartment', 'price', 'condit_id', 'source_info_id', 'wc_id', 'wall_material_id', 'total_area'], 'required'],
-                //[['imageFiles'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxFiles' => 4],
+                ['imageFiles', 'file', 'skipOnEmpty' => true,
+                 //'extensions' => 'png, jpg', 
+                'maxFiles' => 4],
 
         ];
     }
@@ -48,10 +51,51 @@ class Apartment extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'type_object_id' => 'Тип объекта',
-            'count_room' => 'Количество комнат',
-            'layout_id' => 'Планировка',
+            'id' => \Yii::t('yii','ID'),
+            'type_object_id' => \Yii::t('yii','Type object'),
+            'count_room' => \Yii::t('yii','Room count'),
+            'layout_id' => \Yii::t('yii','Room count'),
+            'floor' => \Yii::t('yii','Floor'),
+            'floor_all' => \Yii::t('yii','Floor all'),
+            'city_or_region' => \Yii::t('yii','City or Region'),
+            'locality_id' => \Yii::t('yii','Locality'),
+            'course_id' => \Yii::t('yii','Cource'),
+            'region_id' => \Yii::t('yii','Region'),
+            'region_kharkiv_id' => \Yii::t('yii','Region Kharkiv'),
+            'region_kharkiv_admin_id' => \Yii::t('yii','Region Kharkiv admin'),
+            'street_id' => \Yii::t('yii','Street'),
+            'number_building' => \Yii::t('yii','Number building'),
+            'corps' => \Yii::t('yii','Corps'),
+            'number_apartment' => \Yii::t('yii','Number apartment'),
+            'exchange' => \Yii::t('yii','Exchange'),
+            'exchange_formula' => \Yii::t('yii','Exchange formula'),
+            'landmark' => \Yii::t('yii','Landmark'),
+            'condit_id' => \Yii::t('yii','Condition'),
+            'source_info_id' => \Yii::t('yii','Source info'),
+            'price' => \Yii::t('yii','Price'),
+            'mediator_id' => \Yii::t('yii','Mediator'),
+            'metro_id' => \Yii::t('yii','Metro'),
+            'phone' => \Yii::t('yii','Phone'),
+            'total_area' => \Yii::t('yii','Total area'),
+            'floor_area' => \Yii::t('yii','Floor area'),
+            'kitchen_area' => \Yii::t('yii','Kitchen area'),
+            'wc_id' => \Yii::t('yii','Wc'),
+            'wall_material_id' => \Yii::t('yii','Wall material'),
+            'count_balcony' => \Yii::t('yii','Count balcony'),
+            'count_balcony_glazed' => \Yii::t('yii','Count balcony glazed'),
+            'exclusive_user_id' => \Yii::t('yii','Exclusive user'),
+            'phone_line' => \Yii::t('yii','Phoneline'),
+            'bath' => \Yii::t('yii','Bath'),
+            'comment' => \Yii::t('yii','Comment'),
+            'note' => \Yii::t('yii','Note'),
+            'notesite' => \Yii::t('yii','Note for site'),
+            'date_added' => \Yii::t('yii','Date added'),
+            'date_modified' => \Yii::t('yii','Date modified'),
+            'date_modified_photo' => \Yii::t('yii','Date modified photo'),
+            'author_id' => \Yii::t('yii','Author'),
+            'update_author_id' => \Yii::t('yii','Update author'),
+            'update_photo_user_id' => \Yii::t('yii','Update photo user'),
+            'enabled' => \Yii::t('yii','Enabled'),
             
         ];
     }
@@ -90,9 +134,12 @@ class Apartment extends ActiveRecord
 
     public function upload()
     {
-        if ($this->validate()) { 
+        if($this->validate()) { 
             foreach ($this->imageFiles as $file) {
-                $file->saveAs('uploads/files/' . $file->baseName . '.' . $file->extension);
+                $path = Yii::getAlias('@webroot/upload/files/') . $file->name;
+                //echo "path-".$path;
+                $file->saveAs($path);
+                $this->attachImage($path);
             }
             return true;
         } else {

@@ -50,6 +50,39 @@ use yii\web\UploadedFile;
  */
 class ApartmentController extends Controller
 {
+	/*
+	public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['view','create','update','delete'],
+                        'roles' => ['manageUsers'],
+
+                    ],
+                    [
+                        // for guest
+                        'allow' => true,
+                        'actions' => ['index','signup','signin', 'forgot-password'],
+
+                    ],
+
+                ],
+            ],
+
+        ];
+    }*/
+	
 	public function actionView($id = '0')
 	{
 		$data['id'] = $id;
@@ -89,26 +122,12 @@ class ApartmentController extends Controller
 			$model = new Apartment();
 		}
 		
-/*
-		if (Yii::$app->request->isPost) {
-            $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
-            if ($model->upload()) {
-                $path = Yii::getAlias('@webroot/uploader/files/'.$model->image->baseName.'.'.$model->image->extension);
-				$model->attachImage($path);
-
-            }
-        }*/
-        //var_dump($values);
-        //die;
-
 		$model->attributes = $values;
-		$model->save();
-		//var_dump($model);
-		//die;
-
+		if($model->save()){
+			$model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
+			$model->upload();
+		}
 		
-
-
 		$data['id'] = $model->id;
 		//var_dump($data['id']);
 		//die;

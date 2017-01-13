@@ -40,6 +40,7 @@ AppAsset::register($this);
         ['label' => 'Поиск квартир', 'url' => ['/agency/search']],
         ['label' => 'Добавить квартиру', 'url' => ['/apartment/update']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => 'indexagency', 'url' => ['/agency/index']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
