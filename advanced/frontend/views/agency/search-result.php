@@ -9,8 +9,6 @@
 	use app\models\TypeObject;
 ?>
 
-<?= 'search-result view'?>
-
 <?
 	echo GridView::widget([
 	    'dataProvider' => $dataProvider,
@@ -26,18 +24,14 @@
 	        	}*/
 	        ],
 	        'id',
-	        /*[
-	        	'attribute' => 'ID',
-	        	'value' =>	'id',
-	        ],*/
-	        [
-	        	'attribute' => 'тип',
+	       	[
+	        	'attribute' => 'type_object_id',
 	        	'value' =>  function ($dataProvider) {
 	        		return TypeObject::findOne($dataProvider->type_object_id)->name;
 	        	}
 	        ],
 	        [
-	        	'attribute' => 'Админрайон Харькова',
+	        	'attribute' => 'region_kharkiv_admin_id',
 	        	'value' =>  function ($dataProvider) {
 	        		return RegionKharkivAdmin::findOne($dataProvider->region_kharkiv_admin_id)->name;
                 }

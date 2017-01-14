@@ -41,43 +41,43 @@ use app\models\Users;
   	<div class="container">
 		<div class="col-xs-6 col-sm-3 col-md-1 ">
 		<label for="">ID</label>	
-		<?= $form->field($model['Apartment'],'from_id')->textInput()->label('from'); ?>
-		<?= $form->field($model['Apartment'],'to_id')->textInput()->label('to'); ?>
+		<?= $form->field($model['Apartment'],'from_id')->textInput()->label(\Yii::t('yii','from')); ?>
+		<?= $form->field($model['Apartment'],'to_id')->textInput()->label(\Yii::t('yii','to')); ?>
 		</div>
 		<div class="col-xs-6 col-sm-3 col-md-1 ">
 		<label for="">Комнат</label>	
-		<?= $form->field($model['Apartment'],'from_count_room')->textInput()->label('from'); ?>
-		<?= $form->field($model['Apartment'],'to_count_room')->textInput()->label('to'); ?>
+		<?= $form->field($model['Apartment'],'from_count_room')->textInput()->label(\Yii::t('yii','from')); ?>
+		<?= $form->field($model['Apartment'],'to_count_room')->textInput()->label(\Yii::t('yii','to')); ?>
 		</div>
 		<div class="col-xs-6 col-sm-3 col-md-1 ">
 		<label for="">Цена</label>	
-		<?= $form->field($model['Apartment'],'from_price')->textInput()->label('from'); ?>
-		<?= $form->field($model['Apartment'],'to_price')->textInput()->label('to'); ?>
+		<?= $form->field($model['Apartment'],'from_price')->textInput()->label(\Yii::t('yii','from')); ?>
+		<?= $form->field($model['Apartment'],'to_price')->textInput()->label(\Yii::t('yii','to')); ?>
 		</div>
 		<div class="col-xs-6 col-sm-3 col-md-1 ">
 		<label for="">Этаж</label>	
-		<?= $form->field($model['Apartment'],'from_floor')->textInput()->label('from'); ?>
-		<?= $form->field($model['Apartment'],'to_floor')->textInput()->label('to'); ?>
+		<?= $form->field($model['Apartment'],'from_floor')->textInput()->label(\Yii::t('yii','from')); ?>
+		<?= $form->field($model['Apartment'],'to_floor')->textInput()->label(\Yii::t('yii','to')); ?>
 		</div>
 		<div class="col-xs-6 col-sm-3 col-md-1 ">
 		<label for="">Этажность</label>	
-		<?= $form->field($model['Apartment'],'from_floor_all')->textInput()->label('from'); ?>
-		<?= $form->field($model['Apartment'],'to_floor_all')->textInput()->label('to'); ?>
+		<?= $form->field($model['Apartment'],'from_floor_all')->textInput()->label(\Yii::t('yii','from')); ?>
+		<?= $form->field($model['Apartment'],'to_floor_all')->textInput()->label(\Yii::t('yii','to')); ?>
 		</div>
 		<div class="col-xs-6 col-sm-3 col-md-1 ">
 		<label for="">Пл общ</label>	
-		<?= $form->field($model['Apartment'],'from_total_area')->textInput()->label('from'); ?>
-		<?= $form->field($model['Apartment'],'to_total_area')->textInput()->label('to'); ?>
+		<?= $form->field($model['Apartment'],'from_total_area')->textInput()->label(\Yii::t('yii','from')); ?>
+		<?= $form->field($model['Apartment'],'to_total_area')->textInput()->label(\Yii::t('yii','to')); ?>
 		</div>
 		<div class="col-xs-6 col-sm-3 col-md-1 ">
 		<label for="">Пл жил</label>	
-		<?= $form->field($model['Apartment'],'from_floor_area')->textInput()->label('from'); ?>
-		<?= $form->field($model['Apartment'],'to_floor_area')->textInput()->label('to'); ?>
+		<?= $form->field($model['Apartment'],'from_floor_area')->textInput()->label(\Yii::t('yii','from')); ?>
+		<?= $form->field($model['Apartment'],'to_floor_area')->textInput()->label(\Yii::t('yii','to')); ?>
 		</div>
 		<div class="col-xs-6 col-sm-3 col-md-1 ">
 		<label for="">Пл кухни</label>	
-		<?= $form->field($model['Apartment'],'from_kitchen_area')->textInput()->label('from'); ?>
-		<?= $form->field($model['Apartment'],'to_kitchen_area')->textInput()->label('to'); ?>
+		<?= $form->field($model['Apartment'],'from_kitchen_area')->textInput()->label(\Yii::t('yii','from')); ?>
+		<?= $form->field($model['Apartment'],'to_kitchen_area')->textInput()->label(\Yii::t('yii','to')); ?>
 		</div>
 	</div>
 </div>
